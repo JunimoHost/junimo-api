@@ -1,0 +1,67 @@
+syntax = "proto3";
+package junimohost.provisioner.v1;
+option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/provisioner/v1";
+
+import "google/api/annotations.proto";
+import "google/protobuf/empty.proto";
+import "google/protobuf/field_mask.proto";
+
+service ProvisionerService {
+  // maybe need to return long running operation? idk how long this will take
+  rpc ProvisionServer(ProvisionServerRequest)
+      returns (ProvisionServerResponse) {
+    option (google.api.http) = {
+      post : "/v1/provisioner"
+    };
+  }
+
+  rpc DeleteServer(DeleteServerRequest) returns (google.protobuf.Empty) {
+    option (google.api.http) = {
+      delete : "/v1/provisioner/{server_id}"
+    };
+  }
+
+  rpc GetServersForAccount(GetServersForAccountRequest)
+      returns (GetServersForAccountResponse) {
+    option (google.api.http) = {
+      get : "/v1/provisioner/accounts/{account_id}"
+    };
+  }
+
+  rpc UpdateServerSize(UpdateServerSizeRequest)
+      returns (UpdateServerSizeResponse) {
+    option (google.api.http) = {
+      patch : "/v1/provisioner/{server_id}"
+    };
+  }
+}
+
+message ProvisionedServer {
+  int64 admin_account_id = 1;
+  int64 server_id = 2;
+  int32 instance_size = 3;
+  string host_uri = 4;
+}
+
+message UpdateServerSizeRequest {
+  int64 server_id = 1;
+  int32 instance_size = 2;
+  // maybe keep this and change to be a general update if more fields are added
+  // that need changed
+  // google.protobuf.FieldMask update_mask = 3;
+}
+
+message UpdateServerSizeResponse { ProvisionedServer server = 1; }
+
+message ProvisionServerRequest {
+  int64 admin_account_id = 1;
+  int32 instance_size = 2;
+}
+
+message ProvisionServerResponse { ProvisionedServer server = 1; }
+
+message DeleteServerRequest { int64 server_id = 1; }
+
+message GetServersForAccountRequest { int64 account_id = 1; }
+
+message GetServersForAccountResponse { repeated ProvisionedServer servers = 1; }
