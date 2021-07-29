@@ -3,111 +3,63 @@
 
 ## Table of Contents
 
-- [junimohost/accounts/v1/account_manager.proto](#junimohost/accounts/v1/account_manager.proto)
-    - [CreateAccountRequest](#junimohost.accounts.v1.CreateAccountRequest)
-    - [CreateAccountResponse](#junimohost.accounts.v1.CreateAccountResponse)
-    - [DeleteAccountRequest](#junimohost.accounts.v1.DeleteAccountRequest)
+- [junimohost/game_server/v1/game_server.proto](#junimohost/game_server/v1/game_server.proto)
+    - [CreateServerRequest](#junimohost.game_server.v1.CreateServerRequest)
+    - [CreateServerResponse](#junimohost.game_server.v1.CreateServerResponse)
+    - [DeleteServerRequest](#junimohost.game_server.v1.DeleteServerRequest)
+    - [GameServer](#junimohost.game_server.v1.GameServer)
+    - [GetServersRequest](#junimohost.game_server.v1.GetServersRequest)
+    - [GetServersResponse](#junimohost.game_server.v1.GetServersResponse)
+    - [UpdateServerRequest](#junimohost.game_server.v1.UpdateServerRequest)
+    - [UpdateServerResponse](#junimohost.game_server.v1.UpdateServerResponse)
   
-    - [AccountService](#junimohost.accounts.v1.AccountService)
+    - [GameServerSize](#junimohost.game_server.v1.GameServerSize)
+    - [GameServerStatus](#junimohost.game_server.v1.GameServerStatus)
   
-- [junimohost/provisioner/v1/provisioner.proto](#junimohost/provisioner/v1/provisioner.proto)
-    - [DeleteServerRequest](#junimohost.provisioner.v1.DeleteServerRequest)
-    - [GetServersForAccountRequest](#junimohost.provisioner.v1.GetServersForAccountRequest)
-    - [GetServersForAccountResponse](#junimohost.provisioner.v1.GetServersForAccountResponse)
-    - [ProvisionServerRequest](#junimohost.provisioner.v1.ProvisionServerRequest)
-    - [ProvisionServerResponse](#junimohost.provisioner.v1.ProvisionServerResponse)
-    - [ProvisionedServer](#junimohost.provisioner.v1.ProvisionedServer)
-    - [UpdateServerSizeRequest](#junimohost.provisioner.v1.UpdateServerSizeRequest)
-    - [UpdateServerSizeResponse](#junimohost.provisioner.v1.UpdateServerSizeResponse)
-  
-    - [ProvisionerService](#junimohost.provisioner.v1.ProvisionerService)
+    - [GameServerService](#junimohost.game_server.v1.GameServerService)
   
 - [Scalar Value Types](#scalar-value-types)
 
 
 
-<a name="junimohost/accounts/v1/account_manager.proto"></a>
+<a name="junimohost/game_server/v1/game_server.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## junimohost/accounts/v1/account_manager.proto
+## junimohost/game_server/v1/game_server.proto
 
 
 
-<a name="junimohost.accounts.v1.CreateAccountRequest"></a>
+<a name="junimohost.game_server.v1.CreateServerRequest"></a>
 
-### CreateAccountRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| username | [string](#string) |  |  |
-| email | [string](#string) |  |  |
-| password | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="junimohost.accounts.v1.CreateAccountResponse"></a>
-
-### CreateAccountResponse
+### CreateServerRequest
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| account_id | [int64](#int64) |  |  |
+| instance_size | [GameServerSize](#junimohost.game_server.v1.GameServerSize) |  |  |
 
 
 
 
 
 
-<a name="junimohost.accounts.v1.DeleteAccountRequest"></a>
+<a name="junimohost.game_server.v1.CreateServerResponse"></a>
 
-### DeleteAccountRequest
+### CreateServerResponse
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| account_id | [int64](#int64) |  |  |
+| server_id | [string](#string) |  |  |
 
 
 
 
 
- 
 
- 
-
- 
-
-
-<a name="junimohost.accounts.v1.AccountService"></a>
-
-### AccountService
-
-
-| Method Name | Request Type | Response Type | Description |
-| ----------- | ------------ | ------------- | ------------|
-| CreateAccount | [CreateAccountRequest](#junimohost.accounts.v1.CreateAccountRequest) | [CreateAccountResponse](#junimohost.accounts.v1.CreateAccountResponse) |  |
-| DeleteAccount | [DeleteAccountRequest](#junimohost.accounts.v1.DeleteAccountRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
-
- 
-
-
-
-<a name="junimohost/provisioner/v1/provisioner.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## junimohost/provisioner/v1/provisioner.proto
-
-
-
-<a name="junimohost.provisioner.v1.DeleteServerRequest"></a>
+<a name="junimohost.game_server.v1.DeleteServerRequest"></a>
 
 ### DeleteServerRequest
 
@@ -122,110 +74,75 @@
 
 
 
-<a name="junimohost.provisioner.v1.GetServersForAccountRequest"></a>
+<a name="junimohost.game_server.v1.GameServer"></a>
 
-### GetServersForAccountRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| account_id | [int64](#int64) |  |  |
-
-
-
-
-
-
-<a name="junimohost.provisioner.v1.GetServersForAccountResponse"></a>
-
-### GetServersForAccountResponse
+### GameServer
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| servers | [ProvisionedServer](#junimohost.provisioner.v1.ProvisionedServer) | repeated |  |
-
-
-
-
-
-
-<a name="junimohost.provisioner.v1.ProvisionServerRequest"></a>
-
-### ProvisionServerRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| admin_account_id | [int64](#int64) |  |  |
-| instance_size | [int32](#int32) |  |  |
-
-
-
-
-
-
-<a name="junimohost.provisioner.v1.ProvisionServerResponse"></a>
-
-### ProvisionServerResponse
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| server | [ProvisionedServer](#junimohost.provisioner.v1.ProvisionedServer) |  |  |
-
-
-
-
-
-
-<a name="junimohost.provisioner.v1.ProvisionedServer"></a>
-
-### ProvisionedServer
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| admin_account_id | [int64](#int64) |  |  |
-| server_id | [int64](#int64) |  |  |
-| instance_size | [int32](#int32) |  |  |
+| server_id | [string](#string) |  |  |
+| instance_size | [GameServerSize](#junimohost.game_server.v1.GameServerSize) |  |  |
 | host_uri | [string](#string) |  |  |
+| status | [GameServerStatus](#junimohost.game_server.v1.GameServerStatus) |  |  |
 
 
 
 
 
 
-<a name="junimohost.provisioner.v1.UpdateServerSizeRequest"></a>
+<a name="junimohost.game_server.v1.GetServersRequest"></a>
 
-### UpdateServerSizeRequest
-
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| server_id | [int64](#int64) |  |  |
-| instance_size | [int32](#int32) |  | maybe keep this and change to be a general update if more fields are added that need changed google.protobuf.FieldMask update_mask = 3; |
+### GetServersRequest
 
 
 
 
 
 
-<a name="junimohost.provisioner.v1.UpdateServerSizeResponse"></a>
 
-### UpdateServerSizeResponse
+<a name="junimohost.game_server.v1.GetServersResponse"></a>
+
+### GetServersResponse
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| server | [ProvisionedServer](#junimohost.provisioner.v1.ProvisionedServer) |  |  |
+| servers | [GameServer](#junimohost.game_server.v1.GameServer) | repeated |  |
+
+
+
+
+
+
+<a name="junimohost.game_server.v1.UpdateServerRequest"></a>
+
+### UpdateServerRequest
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| server_id | [string](#string) |  |  |
+| instance_size | [GameServerSize](#junimohost.game_server.v1.GameServerSize) |  |  |
+| update_mask | [google.protobuf.FieldMask](#google.protobuf.FieldMask) |  |  |
+
+
+
+
+
+
+<a name="junimohost.game_server.v1.UpdateServerResponse"></a>
+
+### UpdateServerResponse
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| server | [GameServer](#junimohost.game_server.v1.GameServer) |  |  |
 
 
 
@@ -233,22 +150,50 @@
 
  
 
- 
+
+<a name="junimohost.game_server.v1.GameServerSize"></a>
+
+### GameServerSize
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNKNOWN_SIZE | 0 |  |
+| SMALL | 1 |  |
+
+
+
+<a name="junimohost.game_server.v1.GameServerStatus"></a>
+
+### GameServerStatus
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| UNKNOWN_STATUS | 0 |  |
+| PROVISIONING | 1 |  |
+| PAUSED | 2 |  |
+| ERRORED | 3 |  |
+| CONNECTABLE | 4 |  |
+| TERMINATED | 5 |  |
+
 
  
 
+ 
 
-<a name="junimohost.provisioner.v1.ProvisionerService"></a>
 
-### ProvisionerService
+<a name="junimohost.game_server.v1.GameServerService"></a>
+
+### GameServerService
 
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| ProvisionServer | [ProvisionServerRequest](#junimohost.provisioner.v1.ProvisionServerRequest) | [ProvisionServerResponse](#junimohost.provisioner.v1.ProvisionServerResponse) | maybe need to return long running operation? idk how long this will take |
-| DeleteServer | [DeleteServerRequest](#junimohost.provisioner.v1.DeleteServerRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
-| GetServersForAccount | [GetServersForAccountRequest](#junimohost.provisioner.v1.GetServersForAccountRequest) | [GetServersForAccountResponse](#junimohost.provisioner.v1.GetServersForAccountResponse) |  |
-| UpdateServerSize | [UpdateServerSizeRequest](#junimohost.provisioner.v1.UpdateServerSizeRequest) | [UpdateServerSizeResponse](#junimohost.provisioner.v1.UpdateServerSizeResponse) |  |
+| CreateServer | [CreateServerRequest](#junimohost.game_server.v1.CreateServerRequest) | [CreateServerResponse](#junimohost.game_server.v1.CreateServerResponse) | maybe need to return long running operation? idk how long this will take |
+| DeleteServer | [DeleteServerRequest](#junimohost.game_server.v1.DeleteServerRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
+| GetServers | [GetServersRequest](#junimohost.game_server.v1.GetServersRequest) | [GetServersResponse](#junimohost.game_server.v1.GetServersResponse) |  |
+| UpdateServer | [UpdateServerRequest](#junimohost.game_server.v1.UpdateServerRequest) | [UpdateServerResponse](#junimohost.game_server.v1.UpdateServerResponse) |  |
 
  
 

@@ -10,13 +10,15 @@ plugins:
     opt:
       - paths=source_relative
 
-  - name: cpp
-    out: gen/cpp
+  # C
+  # - name: cpp
+  #   out: gen/cpp
 
-  - name: grpc-cpp
-    out: gen/cpp
-    path: grpc_cpp_plugin
+  # - name: grpc-cpp
+  #   out: gen/cpp
+  #   path: grpc_cpp_plugin
 
+  # Gateway
   - name: grpc-gateway
     out: gen/go
     opt:
@@ -24,10 +26,10 @@ plugins:
       - generate_unbound_methods=true
 
   # python
-  - name: python
-    out: gen/python
-  - name: python_grpc
-    out: gen/python
+  # - name: python
+  #   out: gen/python
+  # - name: python_grpc
+  #   out: gen/python
 
   # docs
   - name: doc
@@ -42,19 +44,16 @@ plugins:
 
   - name: grpc-web
     out: gen/grpc-web
-    opt: import_style=commonjs,mode=grpcwebtext
-
+    opt: import_style=typescript,mode=grpcwebtext
   # nodejs/typescript
   # https://slavovojacek.medium.com/grpc-on-node-js-with-buf-and-typescript-part-1-5aad61bab03b
-  - name: js
-    out: gen/nodejs
-    opt: import_style=commonjs,binary
-
-  - name: js-grpc
-    out: gen/nodejs
-    opt: grpc_js
-    path: grpc_tools_node_protoc_plugin
-
-  - name: ts
-    out: gen/nodejs
-    opt: grpc_js
+  # - name: js
+  #   out: gen/nodejs
+  #   opt: import_style=commonjs,binary
+  # - name: js-grpc
+  #   out: gen/nodejs
+  #   opt: grpc_js
+  #   path: grpc_tools_node_protoc_plugin
+  # - name: ts
+  #   out: gen/nodejs
+  #   opt: grpc_js
