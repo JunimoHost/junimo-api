@@ -15,6 +15,9 @@ export class GameServer extends jspb.Message {
   getHostUri(): string;
   setHostUri(value: string): GameServer;
 
+  getServerName(): string;
+  setServerName(value: string): GameServer;
+
   getStatus(): GameServerStatus;
   setStatus(value: GameServerStatus): GameServer;
 
@@ -31,6 +34,7 @@ export namespace GameServer {
     serverId: string,
     instanceSize: GameServerSize,
     hostUri: string,
+    serverName: string,
     status: GameServerStatus,
   }
 }
@@ -87,6 +91,9 @@ export class CreateServerRequest extends jspb.Message {
   getInstanceSize(): GameServerSize;
   setInstanceSize(value: GameServerSize): CreateServerRequest;
 
+  getServerName(): string;
+  setServerName(value: string): CreateServerRequest;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CreateServerRequest.AsObject;
   static toObject(includeInstance: boolean, msg: CreateServerRequest): CreateServerRequest.AsObject;
@@ -98,6 +105,7 @@ export class CreateServerRequest extends jspb.Message {
 export namespace CreateServerRequest {
   export type AsObject = {
     instanceSize: GameServerSize,
+    serverName: string,
   }
 }
 

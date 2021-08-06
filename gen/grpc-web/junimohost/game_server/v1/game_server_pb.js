@@ -231,7 +231,8 @@ proto.junimohost.game_server.v1.GameServer.toObject = function(includeInstance, 
     serverId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     instanceSize: jspb.Message.getFieldWithDefault(msg, 2, 0),
     hostUri: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    status: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    serverName: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    status: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -281,6 +282,10 @@ proto.junimohost.game_server.v1.GameServer.deserializeBinaryFromReader = functio
       msg.setHostUri(value);
       break;
     case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setServerName(value);
+      break;
+    case 5:
       var value = /** @type {!proto.junimohost.game_server.v1.GameServerStatus} */ (reader.readEnum());
       msg.setStatus(value);
       break;
@@ -334,10 +339,17 @@ proto.junimohost.game_server.v1.GameServer.serializeBinaryToWriter = function(me
       f
     );
   }
+  f = message.getServerName();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
+    );
+  }
   f = message.getStatus();
   if (f !== 0.0) {
     writer.writeEnum(
-      4,
+      5,
       f
     );
   }
@@ -399,11 +411,29 @@ proto.junimohost.game_server.v1.GameServer.prototype.setHostUri = function(value
 
 
 /**
- * optional GameServerStatus status = 4;
+ * optional string server_name = 4;
+ * @return {string}
+ */
+proto.junimohost.game_server.v1.GameServer.prototype.getServerName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.junimohost.game_server.v1.GameServer} returns this
+ */
+proto.junimohost.game_server.v1.GameServer.prototype.setServerName = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional GameServerStatus status = 5;
  * @return {!proto.junimohost.game_server.v1.GameServerStatus}
  */
 proto.junimohost.game_server.v1.GameServer.prototype.getStatus = function() {
-  return /** @type {!proto.junimohost.game_server.v1.GameServerStatus} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {!proto.junimohost.game_server.v1.GameServerStatus} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
@@ -412,7 +442,7 @@ proto.junimohost.game_server.v1.GameServer.prototype.getStatus = function() {
  * @return {!proto.junimohost.game_server.v1.GameServer} returns this
  */
 proto.junimohost.game_server.v1.GameServer.prototype.setStatus = function(value) {
-  return jspb.Message.setProto3EnumField(this, 4, value);
+  return jspb.Message.setProto3EnumField(this, 5, value);
 };
 
 
@@ -810,7 +840,8 @@ proto.junimohost.game_server.v1.CreateServerRequest.prototype.toObject = functio
  */
 proto.junimohost.game_server.v1.CreateServerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    instanceSize: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    instanceSize: jspb.Message.getFieldWithDefault(msg, 1, 0),
+    serverName: jspb.Message.getFieldWithDefault(msg, 2, "")
   };
 
   if (includeInstance) {
@@ -851,6 +882,10 @@ proto.junimohost.game_server.v1.CreateServerRequest.deserializeBinaryFromReader 
       var value = /** @type {!proto.junimohost.game_server.v1.GameServerSize} */ (reader.readEnum());
       msg.setInstanceSize(value);
       break;
+    case 2:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setServerName(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -887,6 +922,13 @@ proto.junimohost.game_server.v1.CreateServerRequest.serializeBinaryToWriter = fu
       f
     );
   }
+  f = message.getServerName();
+  if (f.length > 0) {
+    writer.writeString(
+      2,
+      f
+    );
+  }
 };
 
 
@@ -905,6 +947,24 @@ proto.junimohost.game_server.v1.CreateServerRequest.prototype.getInstanceSize = 
  */
 proto.junimohost.game_server.v1.CreateServerRequest.prototype.setInstanceSize = function(value) {
   return jspb.Message.setProto3EnumField(this, 1, value);
+};
+
+
+/**
+ * optional string server_name = 2;
+ * @return {string}
+ */
+proto.junimohost.game_server.v1.CreateServerRequest.prototype.getServerName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.junimohost.game_server.v1.CreateServerRequest} returns this
+ */
+proto.junimohost.game_server.v1.CreateServerRequest.prototype.setServerName = function(value) {
+  return jspb.Message.setProto3StringField(this, 2, value);
 };
 
 

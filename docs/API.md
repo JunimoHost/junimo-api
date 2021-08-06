@@ -38,6 +38,7 @@
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | instance_size | [GameServerSize](#junimohost.game_server.v1.GameServerSize) |  |  |
+| server_name | [string](#string) |  |  |
 
 
 
@@ -85,6 +86,7 @@
 | server_id | [string](#string) |  |  |
 | instance_size | [GameServerSize](#junimohost.game_server.v1.GameServerSize) |  |  |
 | host_uri | [string](#string) |  |  |
+| server_name | [string](#string) |  |  |
 | status | [GameServerStatus](#junimohost.game_server.v1.GameServerStatus) |  |  |
 
 
