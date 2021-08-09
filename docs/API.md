@@ -53,7 +53,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| server_id | [string](#string) |  |  |
+| server | [GameServer](#junimohost.game_server.v1.GameServer) |  |  |
 
 
 

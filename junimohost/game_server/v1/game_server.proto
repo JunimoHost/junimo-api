@@ -68,7 +68,7 @@ message CreateServerRequest {
   string server_name = 2;
 }
 
-message CreateServerResponse { string server_id = 1; }
+message CreateServerResponse { GameServer server = 1; }
 
 message DeleteServerRequest { int64 server_id = 1; }
 

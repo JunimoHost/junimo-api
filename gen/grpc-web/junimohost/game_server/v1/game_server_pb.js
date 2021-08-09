@@ -1000,7 +1000,7 @@ proto.junimohost.game_server.v1.CreateServerResponse.prototype.toObject = functi
  */
 proto.junimohost.game_server.v1.CreateServerResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    serverId: jspb.Message.getFieldWithDefault(msg, 1, "")
+    server: (f = msg.getServer()) && proto.junimohost.game_server.v1.GameServer.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -1038,8 +1038,9 @@ proto.junimohost.game_server.v1.CreateServerResponse.deserializeBinaryFromReader
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setServerId(value);
+      var value = new proto.junimohost.game_server.v1.GameServer;
+      reader.readMessage(value,proto.junimohost.game_server.v1.GameServer.deserializeBinaryFromReader);
+      msg.setServer(value);
       break;
     default:
       reader.skipField();
@@ -1070,31 +1071,51 @@ proto.junimohost.game_server.v1.CreateServerResponse.prototype.serializeBinary =
  */
 proto.junimohost.game_server.v1.CreateServerResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getServerId();
-  if (f.length > 0) {
-    writer.writeString(
+  f = message.getServer();
+  if (f != null) {
+    writer.writeMessage(
       1,
-      f
+      f,
+      proto.junimohost.game_server.v1.GameServer.serializeBinaryToWriter
     );
   }
 };
 
 
 /**
- * optional string server_id = 1;
- * @return {string}
+ * optional GameServer server = 1;
+ * @return {?proto.junimohost.game_server.v1.GameServer}
  */
-proto.junimohost.game_server.v1.CreateServerResponse.prototype.getServerId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+proto.junimohost.game_server.v1.CreateServerResponse.prototype.getServer = function() {
+  return /** @type{?proto.junimohost.game_server.v1.GameServer} */ (
+    jspb.Message.getWrapperField(this, proto.junimohost.game_server.v1.GameServer, 1));
 };
 
 
 /**
- * @param {string} value
+ * @param {?proto.junimohost.game_server.v1.GameServer|undefined} value
+ * @return {!proto.junimohost.game_server.v1.CreateServerResponse} returns this
+*/
+proto.junimohost.game_server.v1.CreateServerResponse.prototype.setServer = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
  * @return {!proto.junimohost.game_server.v1.CreateServerResponse} returns this
  */
-proto.junimohost.game_server.v1.CreateServerResponse.prototype.setServerId = function(value) {
-  return jspb.Message.setProto3StringField(this, 1, value);
+proto.junimohost.game_server.v1.CreateServerResponse.prototype.clearServer = function() {
+  return this.setServer(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.junimohost.game_server.v1.CreateServerResponse.prototype.hasServer = function() {
+  return jspb.Message.getField(this, 1) != null;
 };
 
 

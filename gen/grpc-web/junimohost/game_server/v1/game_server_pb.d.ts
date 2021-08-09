@@ -110,8 +110,10 @@ export namespace CreateServerRequest {
 }
 
 export class CreateServerResponse extends jspb.Message {
-  getServerId(): string;
-  setServerId(value: string): CreateServerResponse;
+  getServer(): GameServer | undefined;
+  setServer(value?: GameServer): CreateServerResponse;
+  hasServer(): boolean;
+  clearServer(): CreateServerResponse;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CreateServerResponse.AsObject;
@@ -123,7 +125,7 @@ export class CreateServerResponse extends jspb.Message {
 
 export namespace CreateServerResponse {
   export type AsObject = {
-    serverId: string,
+    server?: GameServer.AsObject,
   }
 }
 
