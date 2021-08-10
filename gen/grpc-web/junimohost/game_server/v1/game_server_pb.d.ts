@@ -130,8 +130,8 @@ export namespace CreateServerResponse {
 }
 
 export class DeleteServerRequest extends jspb.Message {
-  getServerId(): number;
-  setServerId(value: number): DeleteServerRequest;
+  getServerId(): string;
+  setServerId(value: string): DeleteServerRequest;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DeleteServerRequest.AsObject;
@@ -143,7 +143,7 @@ export class DeleteServerRequest extends jspb.Message {
 
 export namespace DeleteServerRequest {
   export type AsObject = {
-    serverId: number,
+    serverId: string,
   }
 }
 

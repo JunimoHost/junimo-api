@@ -70,7 +70,7 @@ message CreateServerRequest {
 
 message CreateServerResponse { GameServer server = 1; }
 
-message DeleteServerRequest { int64 server_id = 1; }
+message DeleteServerRequest { string server_id = 1; }
 
 message GetServersRequest {}
 

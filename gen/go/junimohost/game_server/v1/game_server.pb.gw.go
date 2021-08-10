@@ -83,7 +83,7 @@ func request_GameServerService_DeleteServer_0(ctx context.Context, marshaler run
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "server_id")
 	}
 
-	protoReq.ServerId, err = runtime.Int64(val)
+	protoReq.ServerId, err = runtime.String(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "server_id", err)
 	}
@@ -109,7 +109,7 @@ func local_request_GameServerService_DeleteServer_0(ctx context.Context, marshal
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "missing parameter %s", "server_id")
 	}
 
-	protoReq.ServerId, err = runtime.Int64(val)
+	protoReq.ServerId, err = runtime.String(val)
 	if err != nil {
 		return nil, metadata, status.Errorf(codes.InvalidArgument, "type mismatch, parameter: %s, error: %v", "server_id", err)
 	}

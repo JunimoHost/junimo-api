@@ -1151,7 +1151,7 @@ proto.junimohost.game_server.v1.DeleteServerRequest.prototype.toObject = functio
  */
 proto.junimohost.game_server.v1.DeleteServerRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    serverId: jspb.Message.getFieldWithDefault(msg, 1, 0)
+    serverId: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1189,7 +1189,7 @@ proto.junimohost.game_server.v1.DeleteServerRequest.deserializeBinaryFromReader 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {number} */ (reader.readInt64());
+      var value = /** @type {string} */ (reader.readString());
       msg.setServerId(value);
       break;
     default:
@@ -1222,8 +1222,8 @@ proto.junimohost.game_server.v1.DeleteServerRequest.prototype.serializeBinary = 
 proto.junimohost.game_server.v1.DeleteServerRequest.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
   f = message.getServerId();
-  if (f !== 0) {
-    writer.writeInt64(
+  if (f.length > 0) {
+    writer.writeString(
       1,
       f
     );
@@ -1232,20 +1232,20 @@ proto.junimohost.game_server.v1.DeleteServerRequest.serializeBinaryToWriter = fu
 
 
 /**
- * optional int64 server_id = 1;
- * @return {number}
+ * optional string server_id = 1;
+ * @return {string}
  */
 proto.junimohost.game_server.v1.DeleteServerRequest.prototype.getServerId = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 1, 0));
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /**
- * @param {number} value
+ * @param {string} value
  * @return {!proto.junimohost.game_server.v1.DeleteServerRequest} returns this
  */
 proto.junimohost.game_server.v1.DeleteServerRequest.prototype.setServerId = function(value) {
-  return jspb.Message.setProto3IntField(this, 1, value);
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 

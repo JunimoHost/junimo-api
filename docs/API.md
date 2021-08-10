@@ -68,7 +68,7 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| server_id | [int64](#int64) |  |  |
+| server_id | [string](#string) |  |  |
 
 
 
