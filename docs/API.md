@@ -53,7 +53,6 @@
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| server_id | [string](#string) |  |  |
 | server | [GameServer](#junimohost.game_server.v1.GameServer) |  |  |
 
 
@@ -193,7 +192,7 @@
 
 | Method Name | Request Type | Response Type | Description |
 | ----------- | ------------ | ------------- | ------------|
-| CreateServer | [CreateServerRequest](#junimohost.game_server.v1.CreateServerRequest) | [CreateServerResponse](#junimohost.game_server.v1.CreateServerResponse) stream | maybe need to return long running operation? idk how long this will take |
+| CreateServer | [CreateServerRequest](#junimohost.game_server.v1.CreateServerRequest) | [CreateServerResponse](#junimohost.game_server.v1.CreateServerResponse) | maybe need to return long running operation? idk how long this will take |
 | DeleteServer | [DeleteServerRequest](#junimohost.game_server.v1.DeleteServerRequest) | [.google.protobuf.Empty](#google.protobuf.Empty) |  |
 | GetServers | [GetServersRequest](#junimohost.game_server.v1.GetServersRequest) | [GetServersResponse](#junimohost.game_server.v1.GetServersResponse) |  |
 | UpdateServer | [UpdateServerRequest](#junimohost.game_server.v1.UpdateServerRequest) | [UpdateServerResponse](#junimohost.game_server.v1.UpdateServerResponse) |  |

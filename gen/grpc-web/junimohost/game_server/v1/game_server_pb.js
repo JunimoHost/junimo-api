@@ -20,7 +20,6 @@ var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/fie
 goog.object.extend(proto, google_protobuf_field_mask_pb);
 goog.exportSymbol('proto.junimohost.game_server.v1.CreateServerRequest', null, global);
 goog.exportSymbol('proto.junimohost.game_server.v1.CreateServerResponse', null, global);
-goog.exportSymbol('proto.junimohost.game_server.v1.CreateServerResponse.ResultCase', null, global);
 goog.exportSymbol('proto.junimohost.game_server.v1.DeleteServerRequest', null, global);
 goog.exportSymbol('proto.junimohost.game_server.v1.GameServer', null, global);
 goog.exportSymbol('proto.junimohost.game_server.v1.GameServerSize', null, global);
@@ -124,7 +123,7 @@ if (goog.DEBUG && !COMPILED) {
  * @constructor
  */
 proto.junimohost.game_server.v1.CreateServerResponse = function(opt_data) {
-  jspb.Message.initialize(this, opt_data, 0, -1, null, proto.junimohost.game_server.v1.CreateServerResponse.oneofGroups_);
+  jspb.Message.initialize(this, opt_data, 0, -1, null, null);
 };
 goog.inherits(proto.junimohost.game_server.v1.CreateServerResponse, jspb.Message);
 if (goog.DEBUG && !COMPILED) {
@@ -970,32 +969,6 @@ proto.junimohost.game_server.v1.CreateServerRequest.prototype.setServerName = fu
 
 
 
-/**
- * Oneof group definitions for this message. Each group defines the field
- * numbers belonging to that group. When of these fields' value is set, all
- * other fields in the group are cleared. During deserialization, if multiple
- * fields are encountered for a group, only the last value seen will be kept.
- * @private {!Array<!Array<number>>}
- * @const
- */
-proto.junimohost.game_server.v1.CreateServerResponse.oneofGroups_ = [[1,2]];
-
-/**
- * @enum {number}
- */
-proto.junimohost.game_server.v1.CreateServerResponse.ResultCase = {
-  RESULT_NOT_SET: 0,
-  SERVER_ID: 1,
-  SERVER: 2
-};
-
-/**
- * @return {proto.junimohost.game_server.v1.CreateServerResponse.ResultCase}
- */
-proto.junimohost.game_server.v1.CreateServerResponse.prototype.getResultCase = function() {
-  return /** @type {proto.junimohost.game_server.v1.CreateServerResponse.ResultCase} */(jspb.Message.computeOneofCase(this, proto.junimohost.game_server.v1.CreateServerResponse.oneofGroups_[0]));
-};
-
 
 
 if (jspb.Message.GENERATE_TO_OBJECT) {
@@ -1027,7 +1000,6 @@ proto.junimohost.game_server.v1.CreateServerResponse.prototype.toObject = functi
  */
 proto.junimohost.game_server.v1.CreateServerResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    serverId: jspb.Message.getFieldWithDefault(msg, 1, ""),
     server: (f = msg.getServer()) && proto.junimohost.game_server.v1.GameServer.toObject(includeInstance, f)
   };
 
@@ -1066,10 +1038,6 @@ proto.junimohost.game_server.v1.CreateServerResponse.deserializeBinaryFromReader
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {string} */ (reader.readString());
-      msg.setServerId(value);
-      break;
-    case 2:
       var value = new proto.junimohost.game_server.v1.GameServer;
       reader.readMessage(value,proto.junimohost.game_server.v1.GameServer.deserializeBinaryFromReader);
       msg.setServer(value);
@@ -1103,17 +1071,10 @@ proto.junimohost.game_server.v1.CreateServerResponse.prototype.serializeBinary =
  */
 proto.junimohost.game_server.v1.CreateServerResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = /** @type {string} */ (jspb.Message.getField(message, 1));
-  if (f != null) {
-    writer.writeString(
-      1,
-      f
-    );
-  }
   f = message.getServer();
   if (f != null) {
     writer.writeMessage(
-      2,
+      1,
       f,
       proto.junimohost.game_server.v1.GameServer.serializeBinaryToWriter
     );
@@ -1122,48 +1083,12 @@ proto.junimohost.game_server.v1.CreateServerResponse.serializeBinaryToWriter = f
 
 
 /**
- * optional string server_id = 1;
- * @return {string}
- */
-proto.junimohost.game_server.v1.CreateServerResponse.prototype.getServerId = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.junimohost.game_server.v1.CreateServerResponse} returns this
- */
-proto.junimohost.game_server.v1.CreateServerResponse.prototype.setServerId = function(value) {
-  return jspb.Message.setOneofField(this, 1, proto.junimohost.game_server.v1.CreateServerResponse.oneofGroups_[0], value);
-};
-
-
-/**
- * Clears the field making it undefined.
- * @return {!proto.junimohost.game_server.v1.CreateServerResponse} returns this
- */
-proto.junimohost.game_server.v1.CreateServerResponse.prototype.clearServerId = function() {
-  return jspb.Message.setOneofField(this, 1, proto.junimohost.game_server.v1.CreateServerResponse.oneofGroups_[0], undefined);
-};
-
-
-/**
- * Returns whether this field is set.
- * @return {boolean}
- */
-proto.junimohost.game_server.v1.CreateServerResponse.prototype.hasServerId = function() {
-  return jspb.Message.getField(this, 1) != null;
-};
-
-
-/**
- * optional GameServer server = 2;
+ * optional GameServer server = 1;
  * @return {?proto.junimohost.game_server.v1.GameServer}
  */
 proto.junimohost.game_server.v1.CreateServerResponse.prototype.getServer = function() {
   return /** @type{?proto.junimohost.game_server.v1.GameServer} */ (
-    jspb.Message.getWrapperField(this, proto.junimohost.game_server.v1.GameServer, 2));
+    jspb.Message.getWrapperField(this, proto.junimohost.game_server.v1.GameServer, 1));
 };
 
 
@@ -1172,7 +1097,7 @@ proto.junimohost.game_server.v1.CreateServerResponse.prototype.getServer = funct
  * @return {!proto.junimohost.game_server.v1.CreateServerResponse} returns this
 */
 proto.junimohost.game_server.v1.CreateServerResponse.prototype.setServer = function(value) {
-  return jspb.Message.setOneofWrapperField(this, 2, proto.junimohost.game_server.v1.CreateServerResponse.oneofGroups_[0], value);
+  return jspb.Message.setWrapperField(this, 1, value);
 };
 
 
@@ -1190,7 +1115,7 @@ proto.junimohost.game_server.v1.CreateServerResponse.prototype.clearServer = fun
  * @return {boolean}
  */
 proto.junimohost.game_server.v1.CreateServerResponse.prototype.hasServer = function() {
-  return jspb.Message.getField(this, 2) != null;
+  return jspb.Message.getField(this, 1) != null;
 };
 
 
