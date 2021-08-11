@@ -8,7 +8,7 @@ import "google/protobuf/field_mask.proto";
 
 service GameServerService {
   // maybe need to return long running operation? idk how long this will take
-  rpc CreateServer(CreateServerRequest) returns (CreateServerResponse) {
+  rpc CreateServer(CreateServerRequest) returns (stream CreateServerResponse) {
     option (google.api.http) = {
       post : "/v1/servers"
     };
@@ -68,7 +68,12 @@ message CreateServerRequest {
   string server_name = 2;
 }
 
-message CreateServerResponse { GameServer server = 1; }
+message CreateServerResponse {
+  oneof result {
+    string server_id = 1;
+    GameServer server = 2;
+  }
+}
 
 message DeleteServerRequest { string server_id = 1; }
 

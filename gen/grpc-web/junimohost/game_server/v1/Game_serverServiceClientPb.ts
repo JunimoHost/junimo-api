@@ -46,34 +46,13 @@ export class GameServerServiceClient {
 
   createServer(
     request: junimohost_game_server_v1_game_server_pb.CreateServerRequest,
-    metadata: grpcWeb.Metadata | null): Promise<junimohost_game_server_v1_game_server_pb.CreateServerResponse>;
-
-  createServer(
-    request: junimohost_game_server_v1_game_server_pb.CreateServerRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback: (err: grpcWeb.Error,
-               response: junimohost_game_server_v1_game_server_pb.CreateServerResponse) => void): grpcWeb.ClientReadableStream<junimohost_game_server_v1_game_server_pb.CreateServerResponse>;
-
-  createServer(
-    request: junimohost_game_server_v1_game_server_pb.CreateServerRequest,
-    metadata: grpcWeb.Metadata | null,
-    callback?: (err: grpcWeb.Error,
-               response: junimohost_game_server_v1_game_server_pb.CreateServerResponse) => void) {
-    if (callback !== undefined) {
-      return this.client_.rpcCall(
-        this.hostname_ +
-          '/junimohost.game_server.v1.GameServerService/CreateServer',
-        request,
-        metadata || {},
-        this.methodInfoCreateServer,
-        callback);
-    }
-    return this.client_.unaryCall(
-    this.hostname_ +
-      '/junimohost.game_server.v1.GameServerService/CreateServer',
-    request,
-    metadata || {},
-    this.methodInfoCreateServer);
+    metadata?: grpcWeb.Metadata) {
+    return this.client_.serverStreaming(
+      this.hostname_ +
+        '/junimohost.game_server.v1.GameServerService/CreateServer',
+      request,
+      metadata || {},
+      this.methodInfoCreateServer);
   }
 
   methodInfoDeleteServer = new grpcWeb.AbstractClientBase.MethodInfo(
