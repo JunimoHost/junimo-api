@@ -45,6 +45,12 @@ plugins:
   - name: grpc-web
     out: gen/grpc-web
     opt: import_style=typescript,mode=grpcwebtext
+
+  # c#
+  - name: csharp
+    out: gen/csharp
+  - name: grpc-csharp
+    out: gen/csharp
   # nodejs/typescript
   # https://slavovojacek.medium.com/grpc-on-node-js-with-buf-and-typescript-part-1-5aad61bab03b
   # - name: js

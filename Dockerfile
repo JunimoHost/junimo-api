@@ -28,6 +28,8 @@ RUN apt update -y && \
     git curl unzip \
     python3 python3-pip golang-go
 
+WORKDIR /setup
+
 RUN pip3 install --upgrade pip
 
 # install buf https://buf.build/
@@ -56,6 +58,11 @@ RUN go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway
 
 # install npm grpc-tools & ts
 RUN npm install grpc-tools@1.10.0 grpc_tools_node_protoc_ts@5.1.3 --global
+
+# install c#
+RUN curl -sSL https://storage.googleapis.com/junimo-protoc/grpc_csharp_plugin -o ./protoc-gen-grpc-csharp \
+    && chmod +x ./protoc-gen-grpc-csharp \
+    && mv ./protoc-gen-grpc-csharp /usr/local/bin/
 
 # Setup for makefile usage
 WORKDIR /defs
