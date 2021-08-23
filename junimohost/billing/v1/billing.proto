@@ -5,10 +5,8 @@ option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/billing/
 import "google/protobuf/empty.proto";
 
 service BillingService {
-  // maybe need to return long running operation? idk how long this will take
   rpc CreateCheckoutSession(CreateCheckoutSessionRequest) returns (CreateCheckoutSessionResponse);
   rpc GetCustomerPortal(GetCustomerPortalRequest) returns (GetCustomerPortalResponse);
-
 }
 
 message CreateCheckoutSessionRequest {
