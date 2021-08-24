@@ -3,6 +3,8 @@ package junimohost.game_manager.v1;
 option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/game-manager/v1";
 option csharp_namespace = "JunimoServer.GRPC";
 
+import "junimohost/server_manager/v1/server_manager.proto";
+
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
@@ -14,13 +16,8 @@ service GameManagerService {
       post : "/v1/games"
     };
   }
-
 }
 
 message CreateGameRequest {
-  int32 which_farm = 1;
-  bool use_seperate_wallets = 2;
-  int32 starting_cabins = 3;
-  bool cat_person = 4;
-  string farm_name = 5;
+  junimohost.server_manager.v1.GameConfig config = 1;
 }
