@@ -1,12 +1,12 @@
 syntax = "proto3";
-package junimohost.game_server.v1;
-option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/game-server/v1";
+package junimohost.server_manager.v1;
+option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/server-manager/v1";
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
 
-service GameServerService {
+service ServerManagerService {
   // maybe need to return long running operation? idk how long this will take
   rpc CreateServer(CreateServerRequest) returns (CreateServerResponse) {
     option (google.api.http) = {
@@ -33,7 +33,7 @@ service GameServerService {
   }
 }
 
-enum GameServerStatus {
+enum ServerStatus {
   UNKNOWN_STATUS = 0;
   PROVISIONING = 1;
   PAUSED = 2;
@@ -42,38 +42,38 @@ enum GameServerStatus {
   TERMINATED = 5;
 }
 
-enum GameServerSize {
+enum ServerSize {
   UNKNOWN_SIZE = 0;
   SMALL = 1;
 }
 
-message GameServer {
+message Server {
   string server_id = 1;
-  GameServerSize instance_size = 2;
+  ServerSize instance_size = 2;
   string host_uri = 3;
   string server_name = 4;
-  GameServerStatus status = 5;
+  ServerStatus status = 5;
 }
 
 message UpdateServerRequest {
   string server_id = 1;
-  GameServerSize instance_size = 2;
+  ServerSize instance_size = 2;
   google.protobuf.FieldMask update_mask = 3;
 }
 
-message UpdateServerResponse { GameServer server = 1; }
+message UpdateServerResponse { Server server = 1; }
 
 message CreateServerRequest {
-  GameServerSize instance_size = 1;
+  ServerSize instance_size = 1;
   string server_name = 2;
 }
 
 message CreateServerResponse {
-  GameServer server = 1;
+  Server server = 1;
 }
 
 message DeleteServerRequest { string server_id = 1; }
 
 message GetServersRequest {}
 
-message GetServersResponse { repeated GameServer servers = 1; }
+message GetServersResponse { repeated Server servers = 1; }
