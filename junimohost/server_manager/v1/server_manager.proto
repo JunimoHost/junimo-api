@@ -84,8 +84,8 @@ message GetServersRequest {}
 message GetServersResponse { repeated Server servers = 1; }
 
 message CreateGameConfigRequest {
-  string server_id = 1;
-  GameConfig config = 2;
+  GameConfig config = 1;
+  string server_id = 2;
 }
 
 message CreateGameConfigResponse {
