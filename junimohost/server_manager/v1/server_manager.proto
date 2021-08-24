@@ -32,9 +32,10 @@ service ServerManagerService {
     };
   }
 
-  rpc UploadGameConfig(UploadGameConfigRequest) returns (UploadGameConfigResponse) {
+  rpc CreateGameConfig(CreateGameConfigRequest)
+      returns (CreateGameConfigResponse) {
     option (google.api.http) = {
-      post : "/v1/servers/configs"
+      post : "/v1/configs"
     };
   }
 }
@@ -82,9 +83,14 @@ message GetServersRequest {}
 
 message GetServersResponse { repeated Server servers = 1; }
 
-message UploadGameConfigRequest { GameConfig config = 1; }
+message CreateGameConfigRequest {
+  string server_id = 1;
+  GameConfig config = 2;
+}
 
-message UploadGameConfigResponse {}
+message CreateGameConfigResponse {
+  GameConfig config = 1;
+}
 
 message GameConfig {
   int64 whichFarm = 1;
