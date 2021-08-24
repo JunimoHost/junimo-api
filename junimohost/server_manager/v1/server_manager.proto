@@ -31,6 +31,12 @@ service ServerManagerService {
       patch : "/v1/servers/{server_id}"
     };
   }
+
+  rpc UploadGameConfig(UploadGameConfigRequest) returns (UploadGameConfigResponse) {
+    option (google.api.http) = {
+      post : "/v1/servers/configs"
+    };
+  }
 }
 
 enum ServerStatus {
@@ -68,12 +74,22 @@ message CreateServerRequest {
   string server_name = 2;
 }
 
-message CreateServerResponse {
-  Server server = 1;
-}
+message CreateServerResponse { Server server = 1; }
 
 message DeleteServerRequest { string server_id = 1; }
 
 message GetServersRequest {}
 
 message GetServersResponse { repeated Server servers = 1; }
+
+message UploadGameConfigRequest { GameConfig config = 1; }
+
+message UploadGameConfigResponse {}
+
+message GameConfig {
+  int64 whichFarm = 1;
+  bool useSeperateWallets = 2;
+  int64 startingCabins = 3;
+  bool catPerson = 4;
+  string farmName = 5;
+}
