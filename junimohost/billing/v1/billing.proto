@@ -1,6 +1,7 @@
 syntax = "proto3";
 package junimohost.billing.v1;
-option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/billing/v1";
+option go_package = "github.com/junimohost/backend/pkg/billing/v1";
+
 
 import "google/protobuf/empty.proto";
 import "junimohost/server_manager/v1/server_manager.proto";

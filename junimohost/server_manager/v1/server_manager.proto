@@ -1,6 +1,6 @@
 syntax = "proto3";
 package junimohost.server_manager.v1;
-option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/server-manager/v1";
+option go_package = "github.com/junimohost/backend/pkg/server_manager/v1";
 
 import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";

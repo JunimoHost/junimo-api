@@ -1,6 +1,6 @@
 syntax = "proto3";
 package junimohost.game_manager.v1;
-option go_package = "github.com/junimohost/junimo-api/gen/go/junimohost/game-manager/v1";
+option go_package = "github.com/junimohost/backend/pkg/game_manager/v1";
 option csharp_namespace = "JunimoServer.GRPC";
 
 import "junimohost/server_manager/v1/server_manager.proto";
