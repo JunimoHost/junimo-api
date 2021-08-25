@@ -51,7 +51,8 @@ enum ServerStatus {
 
 enum ServerSize {
   UNKNOWN_SIZE = 0;
-  SMALL = 1;
+  STANDARD = 1;
+  PRO = 2;
 }
 
 message Server {
