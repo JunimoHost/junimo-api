@@ -13,13 +13,12 @@ service BillingService {
 }
 
 message CreateCheckoutSessionRequest {
-    junimohost.server_manager.v1.ServerSize instance_size = 1;
-    string success_url = 2;
-    string cancel_url = 3;
-
+    string success_url = 1;
+    string cancel_url = 2;
+    
     // "Optional" fields
+    junimohost.server_manager.v1.ServerSize instance_size = 3;
     junimohost.server_manager.v1.GameConfig config = 4;
-    string server_name = 5;
 }
 
 message CreateCheckoutSessionResponse {
