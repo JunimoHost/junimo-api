@@ -42,15 +42,6 @@ service ServerManagerService {
   }
 }
 
-enum ServerStatus {
-  UNKNOWN_STATUS = 0;
-  PROVISIONING = 1;
-  PAUSED = 2;
-  ERRORED = 3;
-  CONNECTABLE = 4;
-  TERMINATED = 5;
-}
-
 enum ServerSize {
   UNKNOWN_SIZE = 0;
   STANDARD = 1;
@@ -62,7 +53,7 @@ message Server {
   ServerSize instance_size = 2;
   string host_uri = 3;
   string server_name = 4;
-  ServerStatus status = 5;
+  string status = 5;
 }
 
 message UpdateServerRequest {
