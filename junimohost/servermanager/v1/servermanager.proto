@@ -54,6 +54,7 @@ message Server {
   string host_uri = 3;
   string server_name = 4;
   string status = 5;
+  string subscription_status = 6;
 }
 
 message UpdateServerRequest {
