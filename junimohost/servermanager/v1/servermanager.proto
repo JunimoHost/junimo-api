@@ -55,6 +55,7 @@ message Server {
   string server_name = 4;
   string status = 5;
   string subscription_status = 6;
+  int64 trial_end_timestamp = 7; 
 }
 
 message UpdateServerRequest {
