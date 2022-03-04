@@ -40,7 +40,31 @@ service ServerManagerService {
       post : "/v1/configs"
     };
   }
+
+  rpc GetBackups(GetBackupsRequest) returns (GetBackupsResponse);
+  rpc RestoreBackup(RestoreBackupRequest) returns (RestoreBackupResponse);
 }
+
+message GetBackupsRequest {
+  string server_id = 1;
+}
+
+message Backup {
+  string id = 1;
+  string name = 2;
+  int64 created_at = 3;
+}
+
+message GetBackupsResponse {
+  repeated Backup backup = 1;
+}
+
+message RestoreBackupRequest {
+  string server_id = 1;
+  string backup_id = 2;
+}
+
+message RestoreBackupResponse {}
 
 enum ServerSize {
   UNKNOWN_SIZE = 0;
