@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package junimohost.stardewcontainer.v1;
+
+option go_package = "github.com/junimohost/backend/genproto/stardewcontainer/v1;pbsm";
+
+service StardewContainerService {
+    rpc IndexBackup(IndexBackupRequest) returns (IndexBackupResponse);
+    rpc GetStartupConfig(GetStartupConfigRequest) returns (GetStartupConfigResponse);
+    rpc UpdateStatus(UpdateStatusRequest) returns (UpdateStatusResponse);
+}
+
+enum StardewSeasons {
+    SPRING = 0;
+    SUMMER = 1;
+    FALL = 2;
+    WINTER = 3;
+}
+
+message IndexBackupRequest {
+  
+    string server_id = 1;
+    string gcs_path = 2; // ex: gs://<bucket>/<path>
+
+    int64 stardew_year = 3;
+    StardewSeasons stardew_season = 4;
+    int64 stardew_day = 5;
+}
+
+message IndexBackupResponse {}
+
+message GetStartupConfigRequest {
+    string server_id = 1;
+}
+
+message GetStartupConfigResponse {
+    string backup_path = 1; // if empty, no backup is loaded
+}
+
+message UpdateStatusRequest {
+    string server_id = 1;
+    bool backup_restore_successful = 2;
+}
+
+message UpdateStatusResponse {}
