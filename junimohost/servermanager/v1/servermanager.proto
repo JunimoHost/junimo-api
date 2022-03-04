@@ -43,6 +43,8 @@ service ServerManagerService {
 
   rpc GetBackups(GetBackupsRequest) returns (GetBackupsResponse);
   rpc RestoreBackup(RestoreBackupRequest) returns (RestoreBackupResponse);
+  rpc StopServer(StopServerRequest) returns (StopServerResponse);
+  rpc StartServer(StartServerRequest) returns (StartServerResponse);
 }
 
 message GetBackupsRequest {
@@ -118,4 +120,20 @@ message GameConfig {
   int64 startingCabins = 3;
   bool catPerson = 4;
   string farmName = 5;
+}
+
+message StopServerRequest {
+  string server_id = 1;
+}
+
+message StopServerResponse {
+  
+}
+
+message StartServerRequest {
+  string server_id = 1;
+}
+
+message StartServerResponse {
+  
 }
