@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package junimohost.stardewcontainer.v1;
+package junimohost.stardewdaemon.v1;
 
-option go_package = "github.com/junimohost/backend/genproto/stardewcontainer/v1;pbsm";
+option go_package = "github.com/junimohost/backend/genproto/stardewdaemon/v1;pbsd";
 
-service StardewContainerService {
+service StardewDaemonService {
     rpc IndexBackup(IndexBackupRequest) returns (IndexBackupResponse);
     rpc GetStartupConfig(GetStartupConfigRequest) returns (GetStartupConfigResponse);
     rpc UpdateStatus(UpdateStatusRequest) returns (UpdateStatusResponse);
