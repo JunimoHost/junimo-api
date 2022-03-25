@@ -45,6 +45,7 @@ service ServerManagerService {
   rpc RestoreBackup(RestoreBackupRequest) returns (RestoreBackupResponse);
   rpc StopServer(StopServerRequest) returns (StopServerResponse);
   rpc StartServer(StartServerRequest) returns (StartServerResponse);
+  rpc RestartServer(RestartServerRequest) returns (RestartServerResponse);
 }
 
 message GetBackupsRequest {
@@ -136,4 +137,12 @@ message StartServerRequest {
 
 message StartServerResponse {
   
+}
+
+message RestartServerRequest {
+  string server_id = 1;
+}
+
+message RestartServerResponse {
+
 }
