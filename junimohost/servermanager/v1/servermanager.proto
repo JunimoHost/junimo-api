@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package junimohost.servermanager.v1;
 
-import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
 
@@ -10,36 +9,11 @@ option go_package = "github.com/junimohost/backend/genproto/servermanager/v1;pbs
 
 service ServerManagerService {
   // maybe need to return long running operation? idk how long this will take
-  rpc CreateServer(CreateServerRequest) returns (CreateServerResponse) {
-    option (google.api.http) = {
-      post : "/v1/servers"
-    };
-  }
-
-  rpc DeleteServer(DeleteServerRequest) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      delete : "/v1/servers/{server_id}"
-    };
-  }
-
-  rpc GetServers(GetServersRequest) returns (GetServersResponse) {
-    option (google.api.http) = {
-      get : "/v1/servers"
-    };
-  }
-
-  rpc UpdateServer(UpdateServerRequest) returns (UpdateServerResponse) {
-    option (google.api.http) = {
-      patch : "/v1/servers/{server_id}"
-    };
-  }
-
-  rpc CreateGameConfig(CreateGameConfigRequest)
-      returns (CreateGameConfigResponse) {
-    option (google.api.http) = {
-      post : "/v1/configs"
-    };
-  }
+  rpc CreateServer(CreateServerRequest) returns (CreateServerResponse);
+  rpc DeleteServer(DeleteServerRequest) returns (google.protobuf.Empty);
+  rpc GetServers(GetServersRequest) returns (GetServersResponse);
+  rpc UpdateServer(UpdateServerRequest) returns (UpdateServerResponse);
+  rpc CreateGameConfig(CreateGameConfigRequest) returns (CreateGameConfigResponse);
 
   rpc GetBackups(GetBackupsRequest) returns (GetBackupsResponse);
   rpc RestoreBackup(RestoreBackupRequest) returns (RestoreBackupResponse);

@@ -3,7 +3,6 @@ syntax = "proto3";
 package junimohost.gamemanager.v1;
 
 import "junimohost/servermanager/v1/servermanager.proto";
-import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
 
@@ -12,11 +11,7 @@ option csharp_namespace = "JunimoServer.GRPC";
 
 service GameManagerService {
   // maybe need to return long running operation? idk how long this will take
-  rpc CreateGame(CreateGameRequest) returns (google.protobuf.Empty) {
-    option (google.api.http) = {
-      post : "/v1/games"
-    };
-  }
+  rpc CreateGame(CreateGameRequest) returns (google.protobuf.Empty);
 }
 
 message CreateGameRequest {
