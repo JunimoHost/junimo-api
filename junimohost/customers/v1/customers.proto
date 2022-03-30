@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package junimohost.customers.v1;
 
-import "google/api/annotations.proto";
 import "google/protobuf/empty.proto";
 import "google/protobuf/field_mask.proto";
 
