@@ -1,0 +1,17 @@
+syntax = "proto3";
+package junimohost.admin.v1;
+
+option go_package = "github.com/junimohost/backend/genproto/admin/v1;pba";
+
+
+service AdminService {
+  rpc UpgradeDeployment(UpgradeDeploymentRequest) returns (UpgradeDeploymentResponse);
+}
+
+message UpgradeDeploymentRequest {
+    string server_id = 1;
+}
+
+message UpgradeDeploymentResponse {
+
+}
