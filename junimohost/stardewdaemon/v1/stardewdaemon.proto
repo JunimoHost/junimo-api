@@ -4,6 +4,8 @@ package junimohost.stardewdaemon.v1;
 
 option go_package = "github.com/junimohost/backend/genproto/stardewdaemon/v1;pbsd";
 
+import "junimohost/servermanager/v1/servermanager.proto";
+
 service StardewDaemonService {
     rpc IndexBackup(IndexBackupRequest) returns (IndexBackupResponse);
     rpc GetStartupConfig(GetStartupConfigRequest) returns (GetStartupConfigResponse);
@@ -35,6 +37,7 @@ message GetStartupConfigRequest {
 
 message GetStartupConfigResponse {
     string backup_path = 1; // if empty, no backup is loaded
+    junimohost.servermanager.v1.GameConfig config = 2;
 }
 
 message UpdateStatusRequest {

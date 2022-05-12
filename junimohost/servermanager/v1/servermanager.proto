@@ -20,6 +20,8 @@ service ServerManagerService {
   rpc StopServer(StopServerRequest) returns (StopServerResponse);
   rpc StartServer(StartServerRequest) returns (StartServerResponse);
   rpc RestartServer(RestartServerRequest) returns (RestartServerResponse);
+
+  rpc GetAvailableMods(GetAvailableModsRequest) returns (GetAvailableModsResponse);
 }
 
 message GetBackupsRequest {
@@ -95,6 +97,7 @@ message GameConfig {
   int64 startingCabins = 3;
   bool catPerson = 4;
   string farmName = 5;
+  repeated string mod_version_id = 6;
 }
 
 message StopServerRequest {
@@ -119,4 +122,31 @@ message RestartServerRequest {
 
 message RestartServerResponse {
 
+}
+
+message GetAvailableModsRequest {
+
+}
+
+message GetAvailableModsResponse {
+  repeated Mod mods = 1;
+}
+
+message Mod {
+  string mod_id = 1;
+  string mod_name = 2;
+  string author_name = 3;
+  string mod_homepage_url = 4;
+  string mod_install_url = 5;
+  bool requires_fresh_save = 6;
+  bool isLibrary = 7;
+  repeated ModVersion versions = 8;
+}
+
+message ModVersion {
+  string mod_version_id = 1;
+  string mod_id = 2;
+  string gcs_path = 3;
+  string mod_semver = 4;
+  repeated ModVersion dependencies = 5;
 }
