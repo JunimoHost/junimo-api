@@ -138,7 +138,7 @@ message Mod {
   string author_name = 3;
   string mod_homepage_url = 4;
   bool requires_fresh_save = 5;
-  bool isLibrary = 6;
+  bool is_library = 6;
   repeated ModVersion versions = 7;
 }
 
