@@ -137,10 +137,9 @@ message Mod {
   string mod_name = 2;
   string author_name = 3;
   string mod_homepage_url = 4;
-  string mod_install_url = 5;
-  bool requires_fresh_save = 6;
-  bool isLibrary = 7;
-  repeated ModVersion versions = 8;
+  bool requires_fresh_save = 5;
+  bool isLibrary = 6;
+  repeated ModVersion versions = 7;
 }
 
 message ModVersion {
@@ -148,5 +147,6 @@ message ModVersion {
   string mod_id = 2;
   string gcs_path = 3;
   string mod_semver = 4;
-  repeated ModVersion dependencies = 5;
+  string mod_install_url = 5;
+  repeated string dependency_version_ids = 6;
 }
