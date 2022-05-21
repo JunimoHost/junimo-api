@@ -97,7 +97,7 @@ message GameConfig {
   int64 startingCabins = 3;
   bool catPerson = 4;
   string farmName = 5;
-  repeated string mod_version_id = 6;
+  repeated string mod_version_ids = 6;
 }
 
 message StopServerRequest {
