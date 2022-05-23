@@ -116,6 +116,7 @@ message GameConfig {
   bool catPerson = 4;
   string farmName = 5;
   repeated string mod_version_ids = 6;
+  repeated string mod_ids = 7;
 }
 
 message StopServerRequest {
