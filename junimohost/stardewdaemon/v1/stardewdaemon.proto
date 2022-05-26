@@ -40,9 +40,18 @@ message GetStartupConfigResponse {
     junimohost.servermanager.v1.GameConfig config = 2;
 }
 
+enum Status {
+    UNCHANGED = 0;
+    FALSE = 1;
+    TRUE = 2;
+}
+
 message UpdateStatusRequest {
     string server_id = 1;
+    // deprecated
     bool backup_restore_successful = 2;
+    Status backup_restore_successful_v2 = 3;
+    Status server_connectable = 4;
 }
 
 message UpdateStatusResponse {}
