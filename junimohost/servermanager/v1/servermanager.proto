@@ -23,6 +23,8 @@ service ServerManagerService {
 
   rpc GetAvailableMods(GetAvailableModsRequest) returns (GetAvailableModsResponse);
   rpc GetServerMods(GetServerModsRequest) returns (GetServerModsResponse);
+
+  rpc GetSharePage(GetSharePageRequest) returns (GetSharePageResponse);
 }
 
 message DisplayMod {
@@ -32,6 +34,16 @@ message DisplayMod {
   string download_url = 4;
   string homepage = 5;
   bool is_library = 6;
+}
+
+message GetSharePageRequest {
+  string server_id = 1;
+}
+
+message GetSharePageResponse {
+  string host_uri = 1;
+  string server_name = 2;
+  repeated DisplayMod mods = 3;
 }
 
 message GetServerModsRequest {
