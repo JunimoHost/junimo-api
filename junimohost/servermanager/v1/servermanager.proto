@@ -79,6 +79,8 @@ enum ServerSize {
   UNKNOWN_SIZE = 0;
   STANDARD = 1;
   PRO = 2;
+  MODDED = 3;
+  MODDED_PRO = 4;
 }
 
 message Server {
