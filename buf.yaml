@@ -3,8 +3,7 @@
 # For breaking, we recommend having the single value "FILE" in use.
 # See https://docs.buf.build/lint-usage
 # See https://docs.buf.build/breaking-usage
-version: v1beta1
-name: buf.build/junimohost/junimo-api
+version: v1
 deps:
   - buf.build/googleapis/googleapis
 lint:

@@ -3,8 +3,6 @@ package junimohost.billing.v1;
 
 import "junimohost/servermanager/v1/servermanager.proto";
 
-option go_package = "github.com/junimohost/backend/genproto/billing/v1;pbb";
-
 
 service BillingService {
   rpc CreateCheckoutSession(CreateCheckoutSessionRequest) returns (CreateCheckoutSessionResponse);

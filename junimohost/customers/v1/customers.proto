@@ -2,11 +2,6 @@ syntax = "proto3";
 
 package junimohost.customers.v1;
 
-import "google/protobuf/empty.proto";
-import "google/protobuf/field_mask.proto";
-
-option go_package = "github.com/junimohost/backend/genproto/customers/v1;pbsm";
-
 service CustomersService {
     rpc GetMe(GetMeRequest) returns (GetMeResponse);
 }

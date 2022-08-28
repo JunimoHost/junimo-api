@@ -1,4 +1,10 @@
-version: v1beta1
+version: v1
+managed:
+  enabled: true
+  go_package_prefix:
+    default: github.com/junimohost/backend/gen/proto
+    except:
+      - buf.build/googleapis/googleapis
 plugins:
   # golang
   - name: go
