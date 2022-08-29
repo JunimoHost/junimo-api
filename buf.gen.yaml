@@ -2,17 +2,17 @@ version: v1
 managed:
   enabled: true
   go_package_prefix:
-    default: github.com/junimohost/backend/gen/proto
+    default: github.com/junimohost/backend/gen/proto/go
     except:
       - buf.build/googleapis/googleapis
 plugins:
   # golang
   - name: go
-    out: gen/go
+    out: gen/proto/go
     opt:
       - paths=source_relative
   - name: go-grpc
-    out: gen/go
+    out: gen/proto/go
     opt:
       - paths=source_relative
 
@@ -25,11 +25,11 @@ plugins:
   #   path: grpc_cpp_plugin
 
   # Gateway
-  - name: grpc-gateway
-    out: gen/go
-    opt:
-      - paths=source_relative
-      - generate_unbound_methods=true
+  # - name: grpc-gateway
+  #   out: gen/go
+  #   opt:
+  #     - paths=source_relative
+  #     - generate_unbound_methods=true
 
   # python
   # - name: python
