@@ -8,9 +8,6 @@ import "google/protobuf/field_mask.proto";
 option go_package = "github.com/junimohost/backend/genproto/servermanager/v1;pbsm";
 
 service ServerManagerService {
-  // maybe need to return long running operation? idk how long this will take
-  rpc CreateServer(CreateServerRequest) returns (CreateServerResponse);
-  rpc DeleteServer(DeleteServerRequest) returns (google.protobuf.Empty);
   rpc GetServers(GetServersRequest) returns (GetServersResponse);
   rpc UpdateServer(UpdateServerRequest) returns (UpdateServerResponse);
   rpc CreateGameConfig(CreateGameConfigRequest) returns (CreateGameConfigResponse);
