@@ -132,6 +132,7 @@ message GameConfig {
   repeated string mod_version_ids = 6;
   repeated string mod_ids = 7;
   int64 max_players = 8;
+  int64 cabin_strategy = 9; // 0 is cabin stack, 1 is farmhouse stack
 }
 
 message StopServerRequest {
