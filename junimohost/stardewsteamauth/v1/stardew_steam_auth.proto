@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package junimohost.stardewsteamauth.v1;
+
+service StardewSteamAuthService {
+    rpc GetSteamTicket(GetSteamTicketRequest) returns (GetSteamTicketResponse);
+}
+
+message GetSteamTicketRequest {
+
+}
+
+message GetSteamTicketResponse {
+    bytes ticket = 1;
+    int64 ticket_length = 2;
+    string name = 3;
+}
