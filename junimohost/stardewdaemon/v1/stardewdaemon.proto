@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package junimohost.stardewdaemon.v1;
 
-option go_package = "github.com/junimohost/backend/genproto/stardewdaemon/v1;pbsd";
-
 import "junimohost/servermanager/v1/servermanager.proto";
 
 service StardewDaemonService {

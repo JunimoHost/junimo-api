@@ -2,14 +2,8 @@ syntax = "proto3";
 
 package junimohost.servermanager.v1;
 
-import "google/protobuf/empty.proto";
-import "google/protobuf/field_mask.proto";
-
-option go_package = "github.com/junimohost/backend/genproto/servermanager/v1;pbsm";
-
 service ServerManagerService {
   rpc GetServers(GetServersRequest) returns (GetServersResponse);
-  rpc UpdateServer(UpdateServerRequest) returns (UpdateServerResponse);
   rpc CreateGameConfig(CreateGameConfigRequest) returns (CreateGameConfigResponse);
 
   rpc GetBackups(GetBackupsRequest) returns (GetBackupsResponse);
@@ -89,23 +83,6 @@ message Server {
   string subscription_status = 6;
   int64 trial_end_timestamp = 7; 
 }
-
-message UpdateServerRequest {
-  string server_id = 1;
-  ServerSize instance_size = 2;
-  google.protobuf.FieldMask update_mask = 3;
-}
-
-message UpdateServerResponse { Server server = 1; }
-
-message CreateServerRequest {
-  ServerSize instance_size = 1;
-  string server_name = 2;
-}
-
-message CreateServerResponse { Server server = 1; }
-
-message DeleteServerRequest { string server_id = 1; }
 
 message GetServersRequest {}
 
