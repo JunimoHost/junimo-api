@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package junimohost.stardewgame.v1;
+
+service StardewGameService {
+    rpc GameHealthCheck(GameHealthCheckRequest) returns (GameHealthCheckResponse);
+}
+
+message GameHealthCheckRequest {
+    string server_id = 1;
+    optional bool connectable = 2;
+    string invite_code = 3;
+}
+
+message GameHealthCheckResponse {}
