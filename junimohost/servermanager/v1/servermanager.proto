@@ -32,7 +32,7 @@ message GetSharePageRequest {
 }
 
 message GetSharePageResponse {
-  string host_uri = 1;
+  string invite_code = 1;
   string server_name = 2;
   repeated DisplayMod mods = 3;
 }
