@@ -73,7 +73,7 @@ message RestoreBackupRequest {
 message RestoreBackupResponse {}
 
 message GetBackupDownloadUrlRequest {
-  string server_id = 1;
+  string backup_id = 1;
 }
 message GetBackupDownloadUrlResponse {
   string download_url = 1;
